@@ -14,33 +14,31 @@ import CreateListing from "./pages/CreateListing";
 import Listing from "./pages/Listing";
 import Contact from "./pages/Contact";
 import EditListing from "./pages/EditListing";
+import PageLayout from "./components/layout/PageLayout";
 
 function App() {
   return (
     <>
       <Router>
-        <div className="bg-gray-100 font-bold overflow-y-scroll h-screen">
-          <div className="px-6 pt-6 pb-32">
-            <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/profile" element={<PrivateRoute/>}>
-                <Route path="/profile" element={<Profile/>}/>
-              </Route>
-              <Route path="/category/:categoryName" element={<Category/>} />
-              <Route path="/:listingId" element={<Listing/>} />
-              {/* <Route path="/offers/:listingId" element={<Listing/>} />
-              <Route path="/profile/:listingId" element={<Listing/>} /> */}
-              <Route path="/contact/:landlordId" element={<Contact/>} />
-              <Route path="/sign-in" element={<SignIn/>} />
-              <Route path="/offers" element={<Offers/>} />
-              <Route path="/forgot-password" element={<ForgotPassword/>} />
-              <Route path="/sign-up" element={<Register/>} />
+        <Routes>
+          <Route element={<PageLayout/>}>
+            <Route index element={<Home/>} />
+            <Route element={<PrivateRoute/>}>
+              <Route path="/profile" element={<Profile/>}/>
               <Route path="/create-listing" element={<CreateListing/>} />
               <Route path="/edit-listing/:listingId" element={<EditListing/>} />
-            </Routes>
-          </div>
-          <Navbar/>
-        </div>
+            </Route>
+            <Route path="/category/:categoryName" element={<Category/>} />
+            <Route path="/:listingId" element={<Listing/>} />
+            {/* <Route path="/offers/:listingId" element={<Listing/>} />
+            <Route path="/profile/:listingId" element={<Listing/>} /> */}
+            <Route path="/contact/:landlordId" element={<Contact/>} />
+            <Route path="/sign-in" element={<SignIn/>} />
+            <Route path="/offers" element={<Offers/>} />
+            <Route path="/forgot-password" element={<ForgotPassword/>} />
+            <Route path="/sign-up" element={<Register/>} />
+          </Route>
+        </Routes>
       </Router>
       <ToastContainer/>
     </>

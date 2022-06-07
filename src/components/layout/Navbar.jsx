@@ -11,7 +11,7 @@ function Navbar() {
         return false;
     }
     return (
-        <nav className="flex items-center py-4 px-20 z-50 justify-between fixed bottom-0 w-full h-min bg-white">
+        <nav className="flex items-center py-3 px-20 z-50 justify-between fixed bottom-0 w-full h-fit bg-white">
             <Link to="/">
                 <div className={`flex flex-col ${!routeMatch("/") && "text-gray-400"} hover:text-green-500`}>
                     <MdOutlineExplore className="text-3xl mx-auto"/>
